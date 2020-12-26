@@ -147,3 +147,8 @@ func PrintResponse(response *CloudResponse) {
 	fmt.Printf("\t\t\tRemaining: %d\n", response.limit.remaining)
 }
 
+func UnmarshalResponse(response *CloudResponse) interface{} {
+	var result interface{}
+	json.Unmarshal([]byte(response.response), &result)
+	return result
+}
